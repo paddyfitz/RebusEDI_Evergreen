@@ -243,7 +243,7 @@ sub process_quotes {
 		import $module;
 		my $vendor_module=$module->new();
 		my @parsed_quote=$vendor_module->parse_quote($quote);
-		my $order_id=create_order_from_quote(@parsed_quote,$quote->{filename},$quote->{account_id},$quote->{po_org_unit},$quote->{logged_quote_id});
+		my $order_id=create_order_from_quote($quote->{filename},$quote->{account_id},$quote->{po_org_unit},$quote->{logged_quote_id});
 		#create line items inc. line item detail
 		foreach my $item (@parsed_quote)
 		{
@@ -323,7 +323,7 @@ sub process_quotes {
 }
 
 sub create_order_from_quote {
-	my ($self,$parsed_quote,$filename,$account_id,$po_org_unit,$logged_quote_id)	=	@_;
+	my ($filename,$account_id,$po_org_unit,$logged_quote_id)	=	@_;
 	my $po = Fieldmapper::acq::purchase_order->new;
 	$po->owner($edi_quote_user);
 	$po->creator($edi_quote_user);
