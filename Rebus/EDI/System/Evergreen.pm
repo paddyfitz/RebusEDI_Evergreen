@@ -558,7 +558,9 @@ sub lineitem_from_marc {
 		#isbn
 		if ($field->{tag} eq '020' && $field->{'marc:subfield'}->{code} eq 'a')
 		{
-			$lineitem_from_marc->{isbn}=$field->{'marc:subfield'}->{content};
+			use Rebus::EDI;
+			my $clean_isbn=Rebus::EDI::cleanisbn($field->{'marc:subfield'}->{content});
+			$lineitem_from_marc->{isbn}=$clean_isbn;
 		}
 		#title
 		if ($field->{tag} eq '245' && $field->{'marc:subfield'}->{code} eq 'a')
