@@ -41,6 +41,12 @@ our @vendors	=	(
 		ean		=>	"5011234567890",
 		module	=>	"Default"
 	},
+	{
+		name	=>	"Askews",
+		san		=>	"",
+		ean		=>	"5013546027173",
+		module	=>	"Askews"
+	}
 );
 
 sub new {
@@ -114,6 +120,19 @@ sub escape_reserved {
 		$string=~ s/\'/\?\'/g;
 		$string=~ s/\:/\?\:/g;
 		$string=~ s/\+/\?\+/g;
+		return $string;
+	}
+	else
+	{
+		return;
+	}
+}
+
+sub cleanxml {
+	my $string=shift;
+	if ($string ne "")
+	{
+		$string=~ s/&/&amp;/g;
 		return $string;
 	}
 	else
