@@ -292,7 +292,7 @@ sub create_order_message {
 			$gir_cnt++;
 			
 			### call number
-			if ($copy->{lcl})
+			if ($copy->{lcl}&& $copy->{lcl} !~ /ACQ/)
 			{
 				$order_message.="+".$copy->{lcl}.":LCL";
 				$gir_cnt++;
