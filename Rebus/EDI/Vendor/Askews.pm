@@ -378,17 +378,17 @@ sub post_process_quote_file {
 	$ftp->cwd($ftp_account->{in_dir}) or die "Couldn't change directory";
 	
 	### move file to another directory
-	my $new_dir='processed';
-	my $new_file=$new_dir."/".$filename;
-	$ftp->copy($filename, $new_file) or die "Couldn't move remote file to $new_file ";
-	$ftp->delete($filename);
-	$ftp->quit;
+	#my $new_dir='processed';
+	#my $new_file=$new_dir."/".$filename;
+	#$ftp->copy($filename, $new_file) or die "Couldn't move remote file to $new_file ";
+	#$ftp->delete($filename);
+	#$ftp->quit;
 		
 	### rename file
-	#my $rext='.EEQ';
-	#my $qext='.CEQ';
-	#$filename=~ s/$qext/$rext/g;
-	#$ftp->rename($remote_file,$filename) or die "Couldn't rename remote file";
+	my $rext='.EEQ';
+	my $qext='.CEQ';
+	$filename=~ s/$qext/$rext/g;
+	$ftp->rename($remote_file,$filename) or die "Couldn't rename remote file";
 }
 
 1;
