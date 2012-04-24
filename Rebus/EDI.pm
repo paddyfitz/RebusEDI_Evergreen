@@ -22,13 +22,13 @@ our @vendors	=	(
 		name	=>	"Bertrams",
 		san		=>	"0143731",
 		ean		=>	"",
-		module	=>	"Default"
+		module	=>	"Bertrams"
 	},
 	{	
 		name	=>	"Bertrams",
 		san		=>	"5013546025078",
 		ean		=>	"",
-		module	=>	"Default"
+		module	=>	"Bertrams"
 	},
 	{	
 		name	=>	"Dawsons",

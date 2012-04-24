@@ -292,7 +292,15 @@ sub process_quotes {
 				{
 					my $li_detail=Fieldmapper::acq::lineitem_detail->new;
 					my $lst=$copies[$i]->{lst};
-					my $shelfmark=$copies[$i]->{shelfmark};
+					my $shelfmark;
+					if ($copies[$i]->{lcl})
+					{
+						$shelfmark=$copies[$i]->{lcl};
+					}
+					else
+					{
+						$shelfmark=$copies[$i]->{shelfmark};
+					}
 					my $lfn=$copies[$i]->{lfn};
 					my $note=$copies[$i]->{note};
 					my $lsq=$copies[$i]->{lsq};
