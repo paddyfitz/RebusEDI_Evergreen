@@ -74,7 +74,7 @@ sub parse_quote {
 
 			foreach my $rel_num (@{$item->{related_numbers}})
 			{
-				my @segments=("LLO","LST","LSQ","LST","LFN","LCV");
+				my @segments=("LLO","LST","LSQ","LST","LFN","LCV","LCL");
 				my $id = $rel_num->{id};
 				$id=~ s/^0+//;
 				$id--;
